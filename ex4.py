@@ -1,21 +1,20 @@
 def fibonacci(i):
-    sequence = []
-    a, b = 0, 1
-    for _ in range(i):
-        sequence.append(a)
-        a, b = b, a + b
-    return sequence
+        if i < 0:
+                return -1
+        if i == 0:
+                return 0
+        elif i == 1 or i == 2:
+                return 1
+        else:
+                return fibonacci(i - 1) + fibonacci(i - 2)
 
 def main():
-    try:
-        i = int(input("Informe um índice para calcular a sequência de Fibonacci: "))
-        if i < 0:
-            print("Por favor, insira um número inteiro não negativo.")
-        else:
-            result = fibonacci(i)
-            print(" ".join(map(str, result)))
-    except ValueError:
-        print("Por favor, insira um número inteiro válido.")
+        try:
+                i = int(input("Informe um índice para calcular a sequência de Fibonacci: "))
+                result = fibonacci(i)
+                print(f"O valor da sequência de Fibonacci no índice {i} é {result}")
+        except ValueError:
+                print("Por favor, insira um número inteiro válido.")
 
 if __name__ == "__main__":
-    main()
+        main()
